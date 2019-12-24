@@ -1,17 +1,17 @@
-export default class Product{
-    private name:string;
+export default class Product {
+    private name: string;
     private price: number;
 
-    constructor(name, price){
+    constructor(name, price) {
         this.name = name;
         this.price = price;
     }
 
-    public getName(){
+    public getName() {
         return this.name;
     }
 
-    public getPrice(){
+    public getPrice() {
         return this.price;
     }
 }

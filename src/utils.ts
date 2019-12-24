@@ -1,5 +1,5 @@
 export const utils = {
-    roundToTwoDecimalPlaces : (amt) =>{
+    roundToTwoDecimalPlaces: (amt) => {
         return Math.round(amt * 100) / 100;
     }
 };

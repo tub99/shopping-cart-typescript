@@ -1,11 +1,12 @@
 import { utils } from './utils';
+import Product from './product';
 
 export default class ShoppingCart {
     private productStore: any;
     constructor() {
         this.productStore = {};
     }
-    public getItemQuantity(name): number {
+    public getItemQuantity(name: string): number {
         return this.productStore[name].quantity;
     }
 
@@ -13,8 +14,8 @@ export default class ShoppingCart {
         return this.productStore[name].unitPrice;
     }
 
-    private storeProductToCart(product, quantity) {
-        const productName = product.getName();
+    private storeProductToCart(product: Product, quantity: number): void {
+        const productName: string = product.getName();
         if (!this.productStore[productName]) {
             this.productStore[productName] = { unitPrice: product.getPrice(), quantity: quantity }
         } else {
@@ -27,7 +28,7 @@ export default class ShoppingCart {
     }
 
     public getTotalPrice(tax: number): number {
-        let cartPrice = 0;
+        let cartPrice: number = 0;
         for (let prop of Object.keys(this.productStore)) {
             const product = this.productStore[prop];
             cartPrice += product.unitPrice * product.quantity;
@@ -36,9 +37,9 @@ export default class ShoppingCart {
     }
 
     public getTotalTaxAmount(tax): number {
-        let totSalesTax = 0;
+        let totSalesTax: number = 0;
         for (let prop of Object.keys(this.productStore)) {
-            const product = this.productStore[prop];
+            const product: any = this.productStore[prop];
             totSalesTax += utils.roundToTwoDecimalPlaces((product.unitPrice * (tax / 100)) * product.quantity);
         }
         return totSalesTax;

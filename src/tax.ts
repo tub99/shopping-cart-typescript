@@ -5,7 +5,7 @@ export default class Tax {
         this.tax = taxAmt;
     }
 
-    public getTaxPerecntage() : number {
+    public getTaxPerecntage(): number {
         return this.tax;
     }
 

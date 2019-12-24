@@ -1,20 +1,20 @@
 import { expect } from 'chai';
 import Product from '../src/product';
-import  ShoppingCart from './../src/shoppingCart';
+import ShoppingCart from './../src/shoppingCart';
 import Tax from './../src/tax';
 
 describe('Shopping Cart', () => {
     let cart: ShoppingCart, tax: Tax;
     beforeEach(() => {
         cart = new ShoppingCart();
-        tax =  new Tax(12.5);
+        tax = new Tax(12.5);
     })
     it('should create cart instance', () => {
         expect(cart).not.to.be.undefined;
     });
 
     describe('Adding 2 Dove soaps and then 2 Axe Deo soaps to cart', () => {
-        let soap : Product, deo: Product, taxPcnt: number;
+        let soap: Product, deo: Product, taxPcnt: number;
         beforeEach(() => {
             soap = new Product('Dove', 39.99);
             deo = new Product('Axe Deo', 99.99);
@@ -24,7 +24,7 @@ describe('Shopping Cart', () => {
         });
 
         it('should contain 2 Dove soaps  each with a unit price of 39.99', () => {
-            const soapName : string = soap.getName();
+            const soapName: string = soap.getName();
             expect(cart.getItemQuantity(soapName)).to.equal(2);
             expect(cart.getItemUnitPrice(soapName)).to.equal(39.99);
         });
