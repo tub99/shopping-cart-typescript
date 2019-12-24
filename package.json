@@ -1,0 +1,27 @@
+{
+  "name": "shopping-cart-typescript",
+  "version": "1.0.0",
+  "description": "ts node app",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha -r ts-node/register tests/*.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tub99/shopping-cart-typescript.git"
+  },
+  "author": "soumya ghosh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tub99/shopping-cart-typescript/issues"
+  },
+  "homepage": "https://github.com/tub99/shopping-cart-typescript#readme",
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "ts-node": "^8.5.4",
+    "typings": "^2.1.1"
+  }
+}
