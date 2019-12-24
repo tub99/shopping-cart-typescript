@@ -8,5 +8,7 @@ https://nodejs.org/en/download/
 npm install -g typescript
 
 ## Run App
-Install dependencies: npm i
-Run Tests: npm run test
+### Install dependencies
+    npm i
+### Run Tests 
+    npm run test
