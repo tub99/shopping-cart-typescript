@@ -2,6 +2,7 @@ import { expect } from 'chai';
 import Product from '../src/product';
 import ShoppingCart from './../src/shoppingCart';
 import Tax from './../src/tax';
+import Offer from './../src/offer';
 
 describe('Shopping Cart', () => {
     let cart: ShoppingCart, tax: Tax;
@@ -42,5 +43,28 @@ describe('Shopping Cart', () => {
             expect(cart.getTotalPrice(taxPcnt)).to.equal(314.96);
         })
     });
+    describe('Product Offers', ()=>{
+        let soap: Product, deo: Product, offer: Offer, taxPcnt: number;
+        beforeEach(() => {
+            offer = new Offer(2,1);
+            soap = new Product('Dove', 39.99, offer);
+            deo = new Product('Axe Deo', 99.99);
+            cart.addItem(soap, 3);
+            taxPcnt = tax.getTaxPerecntage();
+        });
+
+        it('should contain 2 Dove soaps  each with a unit price of 39.99', () => {
+            const soapName: string = soap.getName();
+            expect(cart.getItemQuantity(soapName)).to.equal(3);
+            expect(cart.getItemUnitPrice(soapName)).to.equal(39.99);
+        });
+        it('should check carts total tax to equal 10.00', () => {
+            expect(cart.getTotalTaxAmount(taxPcnt)).to.equal(10.00);
+        });
+        it('should check carts total discount to be 39.99', () => {
+            expect(cart.getTotalDiscount()).to.equal(39.99);
+        });
+
+    })
 
 });
